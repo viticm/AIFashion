@@ -8,9 +8,92 @@
  * @date 2017/06/09 14:47
  * @uses The base config file.
  *       Refer: some define from lua code.
+ *
+ *       Ain mind: 1. memory (store mind all logic think ways)
+ *                 2. think the input things and choose some interesting things
+ *                    remeber or output things.
+ *
+ *       Ain event: 
+ *
+ *       Ain signal: The input things.
+ *
+ *       Ain action: The output things.
+ *
+ *
+ *       Ain doing: 1. Main: input(?)->mind->output
 */
 #ifndef AIN_CONFIG_H_
 #define AIN_CONFIG_H_
+
+/*
+** ===================================================================
+** Search for "@@" to find all configurable definitions.
+** ===================================================================
+*/
+
+
+/*
+** {====================================================================
+** System Configuration: macros to adapt (if needed) Ain to some
+** particular platform, for instance compiling it with 32-bit numbers or
+** restricting it to C89.
+** =====================================================================
+*/
+
+/*
+@@ AIN_32BITS enables Ain with 32-bit integers and 32-bit floats. You
+** can also define AIN_32BITS in the make file, but changing here you
+** ensure that all software connected to Ain will be compiled with the
+** same configuration.
+*/
+/* #define AIN_32BITS */
+
+
+/*
+@@ AIN_USE_C89 controls the use of non-ISO-C89 features.
+** Define it if you want Ain to avoid the use of a few C99 features
+** or Windows-specific features on Windows.
+*/
+/* #define AIN_USE_C89 */
+
+
+/*
+** By default, Ain on Windows use (some) specific Windows features
+*/
+#if !defined(AIN_USE_C89) && defined(_WIN32) && !defined(_WIN32_WCE)
+#define AIN_USE_WINDOWS  /* enable goodies for regular Windows */
+#endif
+
+
+#if defined(AIN_USE_WINDOWS)
+#define AIN_DL_DLL	/* enable support for DLL */
+#define AIN_USE_C89	/* broadly, Windows is C89 */
+#endif
+
+
+#if defined(AIN_USE_LINUX)
+#define AIN_USE_POSIX
+#define AIN_USE_DLOPEN		/* needs an extra library: -ldl */
+#define AIN_USE_READLINE	/* needs some extra libraries */
+#endif
+
+
+#if defined(AIN_USE_MACOSX)
+#define AIN_USE_POSIX
+#define AIN_USE_DLOPEN		/* MacOS does not need -ldl */
+#define AIN_USE_READLINE	/* needs an extra library: -lreadline */
+#endif
+
+
+/*
+@@ AIN_C89_NUMBERS ensures that Ain uses the largest types available for
+** C89 ('long' and 'double'); Windows always has '__int64', so it does
+** not need to use this case.
+*/
+#if defined(AIN_USE_C89) && !defined(AIN_USE_WINDOWS)
+#define AIN_C89_NUMBERS
+#endif
+
 
 /*
 @@ AIN_DIRSEP is the directory separator (for submodules).
@@ -90,7 +173,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifndef AIN_BUILD_AS_DLL
+#define __stdcall
+#endif
+
 //Function for do action.
-typedef bool (__stdcall *function_action)();
+typedef int (__stdcall *function_action)(void);
 
 #endif //AIN_CONFIG_H_

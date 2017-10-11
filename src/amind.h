@@ -13,8 +13,8 @@
 #ifndef AIN_MIND_H_
 #define AIN_MIND_H_
 
-#include "ain/event.h"
-#include "ain/me.h"
+#include "asignal.h"
+#include "ame.h"
 
 /* Mind thinking and return now status. */
 int ain_thinking(ain_me_t *me);

@@ -11,10 +11,8 @@
 #ifndef AIN_ME_H_
 #define AIN_ME_H_
 
-#include "ain/config.h"
+#include "ainconf.h"
 
-//Function for do action.
-typedef bool (__stdcall *function_action)();
 
 //The thing of all artificial intelligence do.
 typedef struct ain_thing_t {

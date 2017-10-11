@@ -11,6 +11,27 @@
 #ifndef AIN_H_
 #define AIN_H_
 
+#include "ainconf.h"
+
+#define AIN_VERSION_MAJOR	"0"
+#define AIN_VERSION_MINOR	"0"
+#define AIN_VERSION_NUM		0
+#define AIN_VERSION_RELEASE	"1"
+
+#define AIN_VERSION	"Ain " AIN_VERSION_MAJOR "." AIN_VERSION_MINOR
+#define AIN_RELEASE	AIN_VERSION "." AIN_VERSION_RELEASE
+#define AIN_COPYRIGHT	AIN_RELEASE "  Copyright (C) *-2017 by viticm "
+#define AIN_AUTHORS	"viticm<viticm.ti@gmail.com>"
+
+/* mark for precompiled code ('<esc>Ain') */
+#define AIN_SIGNATURE	"\x1bAin"
+
+
+#include "aauxlib.h"
 #include "alimits.h"
+
+
+/* Me status. */
+#define AIN_OK 0
 
 #endif //AIN_H_

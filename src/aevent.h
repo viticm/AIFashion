@@ -11,22 +11,4 @@
 #ifndef AIN_EVENT_H_
 #define AIN_EVENT_H_
 
-#include "ain/config.h"
-
-enum {
-  kAINSignalWhatsMe = 0,                          //What's me signal.
-  kAINSignalThink = 1,                            //Think signal.
-  kAINSignalLearn = 2,                            //Learn signal.
-};
-
-//The signal of all artificial intelligence accept.
-typedef struct ain_signal_t {
-
-  /* Signal operator code. */
-  int signal;
-
-  /* The  */
-
-} ain_signal_t;
-
 #endif //AIN_EVENT_H_
