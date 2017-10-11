@@ -177,15 +177,16 @@ static int loadline (ain_me_t *me) {
     clean_inputstr(); /* Get error. */
     ain_writestring(INPUTFULL_ERR, strlen(INPUTFULL_ERR));
     ain_writeline();
+    ain_freeline(me, b);
     return -2;
   }
   strncat(inputstr, b , l);
   ain_saveline(me, b);
+  int ended = ';' == b[l - 1] ? 1 : 0;
   inputlen += l;
   inputstr[inputlen - 1] = '\0';
-  if (';' == b[l - 1]) {
-    return AIN_OK;
-  }
+  ain_freeline(me, b);
+  if (ended) return AIN_OK;
   return -2;
 }
 
