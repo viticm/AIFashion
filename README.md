@@ -11,12 +11,12 @@ The world is mind, any things can becoming in future.
 
 ## Documentation
 
-The complete docs for Plain framework can be found at the docs in the `/documentation` directory.
+The complete docs AI Fashion can be found at the docs in the `/documentation` directory.
 
 
 ## Copyright and License
-Plain framework was written by Viticm.
-Plain framework is released under the MIT License. See the LICENSE file for details.
+AI Fashion was written by Viticm.
+AI Fashion is released under the MIT License. See the LICENSE file for details.
 
 
 ## Recent Changelog
