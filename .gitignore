@@ -269,3 +269,5 @@ pf/plugin/bak/*
 pf_*.cc
 pf_*.cc
 applications_*.cc
+ain
+libain.a

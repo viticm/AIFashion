@@ -20,7 +20,7 @@
 
 #define AIN_VERSION	"Ain " AIN_VERSION_MAJOR "." AIN_VERSION_MINOR
 #define AIN_RELEASE	AIN_VERSION "." AIN_VERSION_RELEASE
-#define AIN_COPYRIGHT	AIN_RELEASE "  Copyright (C) *-2017 by viticm "
+#define AIN_COPYRIGHT	AIN_RELEASE "  Copyright (C) 2017 by viticm "
 #define AIN_AUTHORS	"viticm<viticm.ti@gmail.com>"
 
 /* mark for precompiled code ('<esc>Ain') */

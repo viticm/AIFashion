@@ -8,6 +8,7 @@
  * @date 2017/06/09 14:47
  * @uses The base config file.
  *       Refer: some define from lua code.
+ *       Deep learning: https://github.com/fchollet/keras
  *
  *       Ain mind: 1. memory (store mind all logic think ways)
  *                 2. think the input things and choose some interesting things

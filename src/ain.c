@@ -90,7 +90,7 @@ static char inputstr[INPUTSTR_MAX];
 static int inputlen = 0;
 
 /* Clean the input string. */
-static void clean_inputstr() {
+static void clean_inputstr () {
   memset(inputstr, 0, sizeof(inputstr));
   inputlen = 0;
 }
@@ -125,7 +125,7 @@ static const char *get_prompt (ain_me_t *me) {
 }
 
 /* Check quit state. */
-static int checkquit(ain_me_t *me, const char *str) {
+static int checkquit (ain_me_t *me, const char *str) {
   UNUSED(me);
   if (0 == strcmp("quit", str)) {
     prompt_type = PROMPT_NONE;
@@ -135,30 +135,34 @@ static int checkquit(ain_me_t *me, const char *str) {
 }
 
 /* Load from string. */
-static void load(ain_me_t *me, const char *str) {
+static void load (ain_me_t *me, const char *str) {
   if (0 == strcmp("think", str)) 
     prompt_type = PROMPT_THINK;
   else if (0 == strcmp("learn", str))
     prompt_type = PROMPT_LEARN;
   else if (0 == strcmp("action", str))
     prompt_type = PROMPT_ACTION;
+  else if (0 == strcmp("exit", str)) {
+    printf("Bye\n");
+    exit(0);
+  }
   else {
 
   }
 }
 
 /* Think from string. */
-static void think(ain_me_t *me, const char *str) {
+static void think (ain_me_t *me, const char *str) {
   if (checkquit(me, str) != -1) return;
 }
 
 /* Learn from string. */
-static void learn(ain_me_t *me, const char *str) {
+static void learn (ain_me_t *me, const char *str) {
   if (checkquit(me, str) != -1) return;
 }
 
 /* Action from string. */
-static void action(ain_me_t *me, const char *str) {
+static void action (ain_me_t *me, const char *str) {
   if (checkquit(me, str) != -1) return;
 }
 
