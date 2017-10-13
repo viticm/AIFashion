@@ -22,6 +22,8 @@
  *
  *
  *       Ain doing: 1. Main: input(?)->mind->output
+ *
+ *       Ain is easy and better work in anywhere(do the human can doing things).
 */
 #ifndef AIN_CONFIG_H_
 #define AIN_CONFIG_H_

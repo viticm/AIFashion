@@ -177,6 +177,13 @@ static int loadline (ain_me_t *me) {
   l = strlen(b);
   if (l > 0 && b[l - 1] == '\n')  /* line ends with newline */
     b[--l] = '\0'; /* remove it */
+  int ended = ';' == b[l - 1] ? 1 : 0;
+  if (ended)  /* line ends with end */
+    b[--l] = '\0'; /* remove it */
+  if (0 == l) {
+    if (ended) return AIN_OK;
+    return -2;
+  }
   if (l + inputlen > INPUTSTR_MAX) {
     clean_inputstr(); /* Get error. */
     ain_writestring(INPUTFULL_ERR, strlen(INPUTFULL_ERR));
@@ -186,9 +193,7 @@ static int loadline (ain_me_t *me) {
   }
   strncat(inputstr, b , l);
   ain_saveline(me, b);
-  int ended = ';' == b[l - 1] ? 1 : 0;
   inputlen += l;
-  inputstr[inputlen - 1] = '\0';
   ain_freeline(me, b);
   if (ended) return AIN_OK;
   return -2;

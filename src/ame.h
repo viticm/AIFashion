@@ -28,6 +28,11 @@ typedef struct ain_thing_t {
 
 } ain_thing_t;
 
+//The memory struct.
+typedef struct ain_memory_t {
+
+} ain_memory_t;
+
 //The me struct.
 typedef struct ain_me_t {
 
@@ -39,6 +44,9 @@ typedef struct ain_me_t {
 
   /* Current things. */
   ain_thing_t *things;
+
+  /* Memory. */
+  ain_memory_t *memory;
 
 } ain_me_t;
 
